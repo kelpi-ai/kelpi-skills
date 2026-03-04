@@ -1,47 +1,61 @@
 # Kelpi Skills
 
-Kelpi onboarding skills for AI coding agents.
-
-These skills are designed around Kelpi's official hosted MCP endpoint:
+Kelpi onboarding skills for AI agents, optimized for the official hosted Kelpi MCP endpoint:
 
 ```text
 https://app.kelpi.ai/api/mcp
 ```
 
-## Install
+These skills are designed to make a new Kelpi user successful quickly:
+- connect Kelpi MCP
+- authenticate and verify workspace access
+- inspect workspace readiness
+- set up a sender
+- launch a first flow
+- continue into SDK setup
 
-Once this repo is published, install it with:
+## Quick Start
 
-```bash
-npx skills add kelpi-ai/kelpi-skills
-```
+1. Install the skills:
 
-Choose:
-- `Claude Code` as the target agent if you want these in Claude Code
-- `Project` scope for repo-local installation or `Global` for machine-wide installation
-- `Symlink` unless you specifically want copied files
+   ```bash
+   npx skills add kelpi-ai/kelpi-skills
+   ```
 
-## After Install
+2. In the installer, choose:
+   - `Claude Code` if you want these in Claude Code
+   - `Project` for repo-local install or `Global` for machine-wide install
+   - `Symlink` unless you specifically want copied files
 
-Add the Kelpi MCP server:
+3. Add Kelpi MCP to Claude Code:
 
-```bash
-claude mcp add --transport http kelpi "https://app.kelpi.ai/api/mcp"
-```
+   ```bash
+   claude mcp add --transport http kelpi "https://app.kelpi.ai/api/mcp"
+   ```
 
-Restart Claude Code, then use the skills directly:
+4. Restart Claude Code.
+
+5. Start with:
+
+   ```text
+   /kelpi help me set up Kelpi and onboard my first flow
+   ```
+
+## Recommended First Prompts
+
+Broad setup plus onboarding:
 
 ```text
 /kelpi help me set up Kelpi and onboard my first flow
 ```
 
-Or run the setup skill explicitly:
+Connection and auth only:
 
 ```text
 /kelpi-mcp-setup connect Kelpi MCP, authenticate me, and verify my workspace
 ```
 
-Then continue into onboarding:
+First workflow after setup:
 
 ```text
 /kelpi-getting-started inspect my workspace and help me launch a simple welcome flow
@@ -49,14 +63,38 @@ Then continue into onboarding:
 
 ## Included Skills
 
-- `kelpi`
-  - Routes broad Kelpi setup and onboarding requests
-- `kelpi-mcp-setup`
-  - Connects the hosted MCP endpoint, authenticates, and verifies workspace access
-- `kelpi-getting-started`
-  - Guides a new user from workspace inspection to sender setup, first flow, activation, and SDK follow-through
+### `kelpi`
 
-## Repo Layout
+Routes broad Kelpi setup and onboarding requests to the right workflow.
+
+### `kelpi-mcp-setup`
+
+Connects the hosted MCP endpoint, guides authentication, and verifies workspace access.
+
+### `kelpi-getting-started`
+
+Guides a new user from workspace inspection through sender setup, first flow creation, activation, and SDK follow-through.
+
+## Intended Experience
+
+This repo is intentionally onboarding-first.
+
+It does not try to expose every possible Kelpi workflow up front. The default path is:
+1. connect
+2. verify
+3. inspect
+4. launch one small flow
+
+That keeps the first-run experience short and concrete instead of overwhelming the user with tool lists.
+
+## Claude Code Setup Notes
+
+These skills assume:
+- Kelpi's official MCP endpoint is `https://app.kelpi.ai/api/mcp`
+- the user will authenticate through the MCP flow when prompted
+- onboarding continues after connection instead of stopping at "MCP is installed"
+
+## Repository Layout
 
 ```text
 skills/
@@ -65,9 +103,9 @@ skills/
   kelpi-getting-started/
 ```
 
-The `skills/` directory is the source of truth for distribution. Do not add `.claude/skills` or `.agents/skills` to this repo; those are installation targets in consuming projects.
+The `skills/` directory is the source of truth for distribution. Do not add `.claude/skills` or `.agents/skills` to this repo; those are install targets in consuming projects.
 
-## Validate
+## Validation
 
 Run the local validator before publishing changes:
 
