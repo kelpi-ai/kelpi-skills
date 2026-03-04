@@ -1,31 +1,22 @@
 ---
 name: kelpi
-description: Route Kelpi setup and onboarding requests to the right workflow. Use when Codex needs to help a user connect the official Kelpi MCP endpoint, authenticate, verify workspace access, troubleshoot first-run setup, or guide a new user from connection through their first live Kelpi flow.
+description: Set up and onboard new Kelpi users through the official hosted MCP endpoint. Use when Codex needs to connect Kelpi MCP, guide authentication, verify workspace access, troubleshoot first-run setup, inspect workspace readiness, set up a sender, create a first flow, activate it safely, or continue into SDK integration.
 ---
 
 # Kelpi
 
-Route broad Kelpi requests into the smallest workflow that will finish the task quickly.
+Guide the user from first connection through first live flow without splitting them across multiple installed skills.
 
-## Route First
+## Default Path
 
-Read [references/routing.md](references/routing.md) first.
-
-Use `kelpi-mcp-setup` when the user needs to:
-- connect Kelpi to an MCP client
-- use the official hosted MCP endpoint
-- authenticate or re-authenticate
-- verify that Kelpi tools are working
-- troubleshoot first-run setup
-
-Use `kelpi-getting-started` when the user needs to:
-- inspect a newly connected workspace
-- choose a first sender or sending domain
-- create a first template or flow
-- activate a first flow
-- wire up SDK tracking after activation
-
-If the request spans both, do setup first and then hand off to getting started.
+Use this order unless the user clearly asks for a narrower task:
+1. connect Kelpi MCP
+2. authenticate and verify access
+3. inspect workspace readiness
+4. resolve sender readiness
+5. design and create one small flow
+6. activate only after explicit approval
+7. continue into SDK setup
 
 ## Keep First-Run Experience Smooth
 
@@ -38,6 +29,21 @@ If the request spans both, do setup first and then hand off to getting started.
   2. verify access
   3. inspect workspace
   4. launch one small flow
+
+## Setup Workflow
+
+For connection, auth, and verification:
+- read [references/hosted-http-endpoint.md](references/hosted-http-endpoint.md)
+- then read [references/auth-and-verification.md](references/auth-and-verification.md)
+- use [references/troubleshooting.md](references/troubleshooting.md) only if setup fails
+
+## Onboarding Workflow
+
+After setup succeeds:
+- read [references/workspace-readiness.md](references/workspace-readiness.md)
+- use [references/sender-setup.md](references/sender-setup.md) if sender readiness is missing
+- use [references/first-template-and-flow.md](references/first-template-and-flow.md) for the first flow
+- use [references/activation-and-sdk.md](references/activation-and-sdk.md) once the flow is ready to go live
 
 ## Use References Selectively
 

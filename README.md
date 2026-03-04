@@ -52,28 +52,20 @@ Broad setup plus onboarding:
 Connection and auth only:
 
 ```text
-/kelpi-mcp-setup connect Kelpi MCP, authenticate me, and verify my workspace
+/kelpi connect Kelpi MCP, authenticate me, and verify my workspace
 ```
 
 First workflow after setup:
 
 ```text
-/kelpi-getting-started inspect my workspace and help me launch a simple welcome flow
+/kelpi inspect my workspace and help me launch a simple welcome flow
 ```
 
-## Included Skills
+## Included Skill
 
 ### `kelpi`
 
-Routes broad Kelpi setup and onboarding requests to the right workflow.
-
-### `kelpi-mcp-setup`
-
-Connects the hosted MCP endpoint, guides authentication, and verifies workspace access.
-
-### `kelpi-getting-started`
-
-Guides a new user from workspace inspection through sender setup, first flow creation, activation, and SDK follow-through.
+Connects the hosted MCP endpoint, guides authentication, verifies workspace access, inspects workspace readiness, sets up a sender, creates a first flow, activates it safely, and continues into SDK follow-through.
 
 ## Intended Experience
 
@@ -99,8 +91,6 @@ These skills assume:
 ```text
 skills/
   kelpi/
-  kelpi-mcp-setup/
-  kelpi-getting-started/
 ```
 
 The `skills/` directory is the source of truth for distribution. Do not add `.claude/skills` or `.agents/skills` to this repo; those are install targets in consuming projects.

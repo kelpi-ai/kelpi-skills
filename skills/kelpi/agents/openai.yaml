@@ -1,7 +1,7 @@
 interface:
   display_name: "Kelpi"
-  short_description: "Route Kelpi setup and onboarding."
-  default_prompt: "Use $kelpi to route this Kelpi setup or onboarding request to the right workflow."
+  short_description: "Set up Kelpi MCP and first flow."
+  default_prompt: "Use $kelpi to connect Kelpi MCP, verify the workspace, and onboard the first live flow."
 dependencies:
   tools:
     - type: "mcp"

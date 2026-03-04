@@ -26,4 +26,4 @@ Setup is successful when:
 After success, suggest the smallest next action:
 - if no sender exists, start sender setup
 - if the workspace is empty, create the first template and flow
-- if flows exist, ask whether to create a new one or inspect an existing one
+- if flows exist, ask whether to create a new flow or inspect an existing one
