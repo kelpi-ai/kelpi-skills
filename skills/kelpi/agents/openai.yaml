@@ -1,0 +1,13 @@
+interface:
+  display_name: "Kelpi"
+  short_description: "Route Kelpi setup and onboarding."
+  default_prompt: "Use $kelpi to route this Kelpi setup or onboarding request to the right workflow."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "kelpi"
+      description: "Kelpi hosted MCP server"
+      transport: "streamable_http"
+      url: "https://app.kelpi.ai/api/mcp"
+policy:
+  allow_implicit_invocation: true
